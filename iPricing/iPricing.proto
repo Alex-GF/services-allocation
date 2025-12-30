@@ -7,25 +7,28 @@ import "google/protobuf/struct.proto";
 // --- Enums ---
 
 enum ValueType {
-  BOOLEAN = 0;
-  NUMERIC = 1;
-  TEXT = 2;
+  NOT_SET_VALUE_TYPE = 0;
+  BOOLEAN = 1;
+  NUMERIC = 2;
+  TEXT = 3;
 }
 
 enum FeatureType {
-  DOMAIN = 0;
-  INFORMATION = 1;
-  INTEGRATION = 2;
-  AUTOMATION = 3;
-  MANAGEMENT = 4;
-  GUARANTEE = 5;
-  SUPPORT = 6;
-  PAYMENT = 7;
+  NOT_SET_FEATURE_TYPE = 0;
+  DOMAIN = 1;
+  INFORMATION = 2;
+  INTEGRATION = 3;
+  AUTOMATION = 4;
+  MANAGEMENT = 5;
+  GUARANTEE = 6;
+  SUPPORT = 7;
+  PAYMENT = 8;
 }
 
 enum UsageLimitType {
-  RENEWABLE = 0;
-  NON_RENEWABLE = 1;
+  NOT_SET_USAGE_LIMIT_TYPE = 0;
+  RENEWABLE = 1;
+  NON_RENEWABLE = 2;
 }
 
 enum RenderMode {
@@ -44,19 +47,21 @@ enum TimeUnit {
 }
 
 enum IntegrationType {
-  API = 0;
-  EXTENSION = 1;
-  IDENTITY_PROVIDER = 2;
-  WEB_SAAS = 3;
-  MARKETPLACE = 4;
-  EXTERNAL_DEVICE = 5;
+  NOT_SET_INTEGRATION_TYPE = 0;
+  API = 1;
+  EXTENSION = 2;
+  IDENTITY_PROVIDER = 3;
+  WEB_SAAS = 4;
+  MARKETPLACE = 5;
+  EXTERNAL_DEVICE = 6;
 }
 
 enum AutomationType {
-  BOT = 0;
-  FILTERING = 1;
-  TRACKING = 2;
-  TASK_AUTOMATION = 3;
+  NOT_SET_AUTOMATION_TYPE = 0;
+  BOT = 1;
+  FILTERING = 2;
+  TRACKING = 3;
+  TASK_AUTOMATION = 4;
 }
 
 // --- Main Entities ---
@@ -65,12 +70,12 @@ message Feature {
   string name = 1;
   optional string description = 2;
   optional string tag = 3;
-  ValueType valueType = 4;
+  optional ValueType valueType = 4;
   google.protobuf.Value defaultValue = 5;
   optional google.protobuf.Value value = 6;
   optional string expression = 7;
   optional string serverExpression = 8;
-  FeatureType type = 9;
+  optional FeatureType type = 9;
   optional IntegrationType integrationType = 10;
   repeated string pricingUrls = 11;
   optional string docUrl = 12;
