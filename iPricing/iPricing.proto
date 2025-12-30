@@ -99,7 +99,7 @@ message UsageLimit {
 message Plan {
   string name = 1;
   optional string description = 2;
-  string price = 3; // Using string to support "number | string"
+  google.protobuf.Value price = 3; // Using string to support "number | string"
   string unit = 4;
   bool private = 5;
   map<string, Feature> features = 6;
@@ -109,7 +109,7 @@ message Plan {
 message AddOn {
   string name = 1;
   optional string description = 2;
-  string price = 3; // Using string to support "number | string"
+  google.protobuf.Value price = 3; // Using string to support "number | string"
   string unit = 4;
   bool private = 5;
   repeated string available_for = 6;
